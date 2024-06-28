@@ -1,5 +1,5 @@
 <?php 
-session_start()
+session_start();
 
 ?>
 
@@ -13,9 +13,9 @@ session_start()
 <body>
     <main>
         <section>
-            <?php if($_SESSION['logged_in']) { ?>
+            <?php if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']) { ?>
                 <h1>
-                    Welcome <?php $_SESSION["username"]?>
+                    Welcome <?php echo $_SESSION["username"]?>
                 </h1>
             <?php } else { ?>
                 <h1>
