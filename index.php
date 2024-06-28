@@ -17,6 +17,9 @@ session_start();
                 <h1>
                     Welcome <?php echo $_SESSION["username"]?>
                 </h1>
+                <a href="./src/logout.php">
+                    Log out here!
+                </a>
             <?php } else { ?>
                 <h1>
                     "Please log in with your credentials"
