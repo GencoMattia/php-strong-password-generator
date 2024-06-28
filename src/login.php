@@ -21,6 +21,7 @@ if ($isUserFound) {
     $_SESSION['logged_in'] = true;
     $_SESSION["username"] = $_POST["username"];
     $loginMessage = "Login Successful";
+    header("Location: ../index.php");
 } else {
     $loginMessage = "No user with these credentials found!"; 
 }
