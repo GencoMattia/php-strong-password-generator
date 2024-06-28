@@ -8,19 +8,21 @@ $username = isset($_POST["username"]) ? $_POST["username"] : "null";
 $password = isset($_POST["password"]) ? $_POST["password"] : "null";
 
 $isUserFound = false;
+$loginMessage = "";
 
 foreach($users as $key => $user) {
     if( $username === $user["username"] && $password === $user["password"] ) {
         $isUserFound = true;
-        echo "Login Successful";
         break;
     }
 };
 
 if ($isUserFound) {
+    $_SESSION['logged_in'] = true;
     $_SESSION["username"] = $_POST["username"];
+    $loginMessage = "Login Successful";
 } else {
-    echo "No user with these credentials found!"; 
+    $loginMessage = "No user with these credentials found!"; 
 }
 
 ?>
@@ -54,6 +56,11 @@ if ($isUserFound) {
                     </button>
                 </div>
             </form>
+            <div class="login-message">
+                <p>
+                    <?php echo $loginMessage ?>
+                </p>
+            </div>
         </section>
     </main>
 </body>
